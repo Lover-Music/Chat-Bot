@@ -13,7 +13,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 MONGO_URL = os.environ.get("MONGO_URL", "")
 
 bot = Client(
-    "EmiliaBot" ,
+    "SonaChatBot" ,
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
@@ -38,8 +38,8 @@ async def start(client, message):
     filters.command("chatbot off", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbotofd(client, message):
-    emiliadb = MongoClient(MONGO_URL)    
-    emilia = emiliadb["EmiliaDb"]["Emilia"]     
+    sonadb = MongoClient(MONGO_URL)    
+    sona = sonadb["SonaDb"]["Sona"]     
     if message.from_user:
         user = message.from_user.id
         chat_id = message.chat.id
@@ -49,11 +49,11 @@ async def chatbotofd(client, message):
            return await message.reply_text(
                 "You are not admin"
             )
-    is_emilia = emilia.find_one({"chat_id": message.chat.id})
-    if not is_emilia:
-        emilia.insert_one({"chat_id": message.chat.id})
+    is_sona = sona.find_one({"chat_id": message.chat.id})
+    if not is_sona:
+        sona.insert_one({"chat_id": message.chat.id})
         await message.reply_text(f"Chatbot Disabled!")
-    if is_emilia:
+    if is_sona:
         await message.reply_text(f"ChatBot Is Already Disabled")
     
 
@@ -61,8 +61,8 @@ async def chatbotofd(client, message):
     filters.command("chatbot on", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatboton(client, message):
-    emiliadb = MongoClient(MONGO_URL)    
-    emilia = emiliadb["EmiliaDb"]["Emilia"]     
+    sonadb = MongoClient(MONGO_URL)    
+    sona = sonadb["SonaDb"]["Sona"]     
     if message.from_user:
         user = message.from_user.id
         chat_id = message.chat.id
@@ -72,11 +72,12 @@ async def chatboton(client, message):
             return await message.reply_text(
                 "You are not admin"
             )
-    is_emilia = emilia.find_one({"chat_id": message.chat.id})
-    if not is_emilia:           
+    is_sona = emilia.find_one({"chat_id": message.chat.id})
+    if not is_sona:           
         await message.reply_text(f"Chatbot Is Already Enabled")
     if is_emilia:
-        emilia.delete_one({"chat_id": message.chat.id})
+        sona
+.delete_one({"chat_id": message.chat.id})
         await message.reply_text(f"ChatBot Is Enable!")
     
 
@@ -167,10 +168,11 @@ async def emiliastickerai(client: Client, message: Message):
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       emiliadb = MongoClient(MONGO_URL)
-       emilia = emiliadb["EmiliaDb"]["Emilia"] 
-       is_emilia = emilia.find_one({"chat_id": message.chat.id})
-       if not is_emilia:
+       sonadb = MongoClient(MONGO_URL)
+       sona = sonadb["SonaDb"]["Sona
+"] 
+       is_sona = sona.find_one({"chat_id": message.chat.id})
+       if not is_sona:
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})      
@@ -187,9 +189,9 @@ async def emiliastickerai(client: Client, message: Message):
                    await message.reply_sticker(f"{hey}")
    
    if message.reply_to_message:
-       emiliadb = MongoClient(MONGO_URL)
-       emilia = emiliadb["EmiliaDb"]["Emilia"] 
-       is_emilia = emilia.find_one({"chat_id": message.chat.id})
+       sonadb = MongoClient(MONGO_URL)
+       sona = sona medb["SonaDb"]["Sona"] 
+       is_sona = sona.find_one({"chat_id": message.chat.id})
        getme = await bot.get_me()
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
@@ -228,7 +230,7 @@ async def emiliastickerai(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def emiliaprivate(client: Client, message: Message):
+async def sonaprivate(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]
@@ -271,7 +273,7 @@ async def emiliaprivate(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def emiliaprivatesticker(client: Client, message: Message):
+async def sonaprivatesticker(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"] 
