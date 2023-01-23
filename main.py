@@ -122,8 +122,8 @@ async def emiliaai(client: Client, message: Message):
                    await message.reply_text(f"{hey}")
    
    if message.reply_to_message:  
-       emiliadb = MongoClient(MONGO_URL)
-       emilia = emiliadb["EmiliaDb"]["Emilia"] 
+       sonadb = MongoClient(MONGO_URL)
+       sona = sonadb["SonaDb"]["Sona"] 
        is_emilia = emilia.find_one({"chat_id": message.chat.id})    
        getme = await bot.get_me()
        bot_id = getme.id                             
