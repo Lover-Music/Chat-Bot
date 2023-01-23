@@ -1,5 +1,5 @@
 {
-    "name": "EmiliaMachineBot",    
+    "name": "SonaChatBot",    
     "env": {
         "BOT_TOKEN": {
             "description": "telegram bot token here",
