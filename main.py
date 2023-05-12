@@ -169,8 +169,7 @@ async def emiliastickerai(client: Client, message: Message):
 
    if not message.reply_to_message:
        sonadb = MongoClient(MONGO_URL)
-       sona = sonadb["SonaDb"]["Sona
-"] 
+       sona = sonadb["SonaDb"]["Sona"]
        is_sona = sona.find_one({"chat_id": message.chat.id})
        if not is_sona:
            await bot.send_chat_action(message.chat.id, "typing")
