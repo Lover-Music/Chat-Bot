@@ -188,7 +188,7 @@ async def emiliastickerai(client: Client, message: Message):
    
    if message.reply_to_message:
        sonadb = MongoClient(MONGO_URL)
-       sona = sona medb["SonaDb"]["Sona"] 
+       sona = sonadb["SonaDb"]["Sona"] 
        is_sona = sona.find_one({"chat_id": message.chat.id})
        getme = await bot.get_me()
        bot_id = getme.id
