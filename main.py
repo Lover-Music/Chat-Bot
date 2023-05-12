@@ -76,8 +76,7 @@ async def chatboton(client, message):
     if not is_sona:           
         await message.reply_text(f"Chatbot Is Already Enabled")
     if is_emilia:
-        sona
-.delete_one({"chat_id": message.chat.id})
+        sona.delete_one({"chat_id": message.chat.id})
         await message.reply_text(f"ChatBot Is Enable!")
     
 
