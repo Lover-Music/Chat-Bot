@@ -31,7 +31,7 @@ async def is_admins(chat_id: int):
 
 @bot.on_message(filters.command("start"))
 async def start(client, message):
-        await message.reply_text("hi Jaan)
+        await message.reply_text("hi Jaan")
        
 
 @bot.on_message(
