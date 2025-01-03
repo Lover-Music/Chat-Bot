@@ -1,5 +1,5 @@
 pyrogram==2.0.106
-pymongo
+pymongo 4.10.1
 requests
 dnspython
 tgcrypto==1.2.2
