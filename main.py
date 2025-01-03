@@ -305,4 +305,4 @@ async def sonaprivatesticker(client: Client, message: Message):
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
        
-
+bot.run()
