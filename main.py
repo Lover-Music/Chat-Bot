@@ -10,7 +10,7 @@ import re
 API_ID = os.environ.get("API_ID", "18960528") 
 API_HASH = os.environ.get("API_HASH", "cc0fff577b677c9b2b4de5dd5bc5dfd1") 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "5607218250:AAHUpNwLgwcnUeLp8iyRGSZfbNB3h0KSznI")
-MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://2004:2004@cluster0.vugmi1n.mongodb.net/?retryWrites=true&w=majority")
+MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://hnyx:wywyw2@cluster0.9dxlslv.mongodb.net/?retryWrites=true&w=majority")
 
 bot = Client(
     "SonaChatBot" ,
